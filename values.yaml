@@ -10,7 +10,7 @@ replicas: 1
 container:
   image: szadhub/go-metrics
   pullPolicy: IfNotPresent
-  tag: 7ee9c7990d38da127218b5c666681b293744e739
+  tag: ce4eb1b4fec88f0ee8bbce6a64cd3c1d33da6272
   port: 5000
 
 #Container resources
