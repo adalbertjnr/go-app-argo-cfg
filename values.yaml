@@ -57,7 +57,7 @@ ingress:
 #Bool for activate the nginx-blue deployment and service
 #Just for study purposes and ensure the Traefik ingress is working properly
 nginxblue:
-  deployment: false
-  service: false
+  deployment: true
+  service: true
 
 
