@@ -1,15 +1,19 @@
+#Values for the deployment
 deployment:
   name: golang-app
   label: golang
 
+#Image replicas
 replicas: 1
 
+#Container specs
 container:
   image: szadhub/go-metrics
   pullPolicy: IfNotPresent
   tag: 422f003ab6933b87dd64975df949249a53290c2b
   port: 5000
 
+#Container resources
 resources:
   requests:
     memory: "64Mi"
@@ -18,13 +22,15 @@ resources:
     memory: "128Mi"
     cpu: "256m"
 
+#Values for the service
 service:
   name: go-metrics-svc
-  serviceType: LoadBalancer
+  serviceType: ClusterIP
   label: golang
   port: 80
   targetPort: 5000
 
+#Values for horizontal pod autoscaling
 hpa:
   enabled: true
   name: golang-app-hpa
@@ -32,5 +38,26 @@ hpa:
   maxReplicas: 5
   avgCpuConsume: 70
   #avgMemConsume: 70
+
+#Values for Traefik Ingress
+ingress:
+  enabled: true
+  name: go-metrics-ingress
+  annotations: {}
+  routes:
+    - match: '`blue.szanetwork.com`, `www.blue.szanetwork.com`'
+      services:
+        - name: nginx-deploy-blue
+          port: 80
+    - match: '`app.szanetwork.com`, `www.app.szanetwork.com`'
+      services:
+        - name: go-metrics-svc
+          port: 80
+
+#Bool for activate the nginx-blue deployment and service
+#Just for study purposes and ensure the Traefik ingress is working properly
+nginxblue:
+  deployment: false
+  service: false
 
 
