@@ -68,3 +68,5 @@ db:
   dbtag: f324b445e120bedc2aee89d406e1cb237f04dcde
   pullPolicy: IfNotPresent
   port: 5432
+  serviceType: ClusterIP
+
