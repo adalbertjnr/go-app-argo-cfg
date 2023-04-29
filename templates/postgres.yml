@@ -1,0 +1,32 @@
+{{- if .Values.db.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.db.name }}
+  labels:
+    argo: {{ .Values.db.label }}
+spec:
+  selector:
+    matchLabels:
+      argo: {{ .Values.db.label }}
+  template:
+    metadata:
+      labels:
+        argo: {{ .Values.db.label }}
+    spec:
+      containers:
+        - name: {{ .Values.db.name }}
+          image: "{{ .Values.db.image }}:{{ .Values.db.tag }}"
+          imagePullPolicy: {{ .Values.db.pullPolicy }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          ports:
+            - containerPort: {{ .Values.db.port }}
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "loja"
+            - name: POSTGRES_PASSWORD
+              value: "123"
+{{- end }}

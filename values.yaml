@@ -60,4 +60,11 @@ nginxblue:
   deployment: true
   service: true
 
-
+db:
+  enabled: true
+  name: postgres-db
+  label: db
+  image: postgres
+  tag: alpine
+  pullPolicy: IfNotPresent
+  port: 5432

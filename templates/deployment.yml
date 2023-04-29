@@ -34,4 +34,15 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           ports:
             - containerPort: {{ .Values.container.port }}
-      
+          env:
+            - name: USER
+              value: "postgres"
+            - name: DB_NAME
+              value: "loja"
+            - name: PASS
+              value: "123"
+            - name: HOST
+              value: "postgres-db"  
+            - name: PORT
+              value: "5432"  
+
