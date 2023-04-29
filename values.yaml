@@ -10,7 +10,7 @@ replicas: 1
 container:
   image: szadhub/go-loja
   pullPolicy: IfNotPresent
-  tag: f324b445e120bedc2aee89d406e1cb237f04dcde
+  tag: 53f627d5aabbfb324c6986f47c0eac7865627e72
   port: 5000
 
 #Container resources
