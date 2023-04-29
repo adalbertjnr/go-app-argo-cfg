@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.db.name }}
-          image: "{{ .Values.db.image }}:{{ .Values.db.dbtag }}"
+          image: "{{ .Values.db.image }}:{{ .Values.db.dbver }}"
           imagePullPolicy: {{ .Values.db.pullPolicy }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

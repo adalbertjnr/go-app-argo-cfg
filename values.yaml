@@ -65,7 +65,7 @@ db:
   name: postgres-db
   label: db
   image: postgres
-  dbtag: f324b445e120bedc2aee89d406e1cb237f04dcde
+  dbver: alpine
   pullPolicy: IfNotPresent
   port: 5432
   serviceType: ClusterIP
