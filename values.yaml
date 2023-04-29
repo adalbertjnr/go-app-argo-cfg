@@ -65,6 +65,6 @@ db:
   name: postgres-db
   label: db
   image: postgres
-  tag: 37692879c6317498bb740e0b4887ce3237421aa9
+  dbtag: alpine
   pullPolicy: IfNotPresent
   port: 5432
