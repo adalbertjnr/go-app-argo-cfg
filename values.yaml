@@ -10,7 +10,7 @@ replicas: 1
 container:
   image: szadhub/go-loja
   pullPolicy: IfNotPresent
-  tag: 37692879c6317498bb740e0b4887ce3237421aa9
+  tag: f324b445e120bedc2aee89d406e1cb237f04dcde
   port: 5000
 
 #Container resources
@@ -65,6 +65,6 @@ db:
   name: postgres-db
   label: db
   image: postgres
-  dbtag: alpine
+  dbtag: f324b445e120bedc2aee89d406e1cb237f04dcde
   pullPolicy: IfNotPresent
   port: 5432
