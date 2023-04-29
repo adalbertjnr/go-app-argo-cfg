@@ -8,7 +8,7 @@ replicas: 1
 
 #Container specs
 container:
-  image: szadhub/go-metrics
+  image: szadhub/go-loja
   pullPolicy: IfNotPresent
   tag: ce4eb1b4fec88f0ee8bbce6a64cd3c1d33da6272
   port: 5000
